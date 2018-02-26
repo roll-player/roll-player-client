@@ -2,8 +2,8 @@ import React from 'react'
 import { graphql } from 'react-apollo'
 import Formsy from 'formsy-react'
 
-import { CreateGameMutation } from './queries'
-import TextInput from './components/TextInput'
+import { CreateGameMutation } from '../queries'
+import TextInput from './TextInput'
 
 class CreateGame extends React.Component {
     constructor (props) {

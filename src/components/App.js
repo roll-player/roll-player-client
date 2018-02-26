@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import { GamesQuery } from './queries'
+import { GamesQuery } from '../queries'
 import CreateGame from './CreateGame'
 import GameCard from './GameCard'
 
