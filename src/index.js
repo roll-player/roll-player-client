@@ -30,7 +30,7 @@ const authLink = setContext((_, { headers }) => {
     }
   });
 
-const httpLink = new HttpLink({ uri: 'http://localhost:8080/graphql' })
+const httpLink = new HttpLink({ uri: `${process.env.REACT_APP_CODEX_API_URL}/graphql` })
 
 const client = new ApolloClient({
     link: authLink.concat(httpLink),

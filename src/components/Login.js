@@ -6,8 +6,9 @@ class Login extends Component {
 
     constructor (props) {
         super(props)
-        this.lock = new auth0Lock('0JN9ieibg3YbLHKdmxt1owEvJDACQKhk', 'rollplayer.auth0.com', {auth: { responseType: "token"}})
-        this.state = {loggedIn: false, err: null}
+        const options = { auth: { responseType: "token id_token" } }
+        this.lock = new auth0Lock(process.env.REACT_APP_AUTH0_CLIENTID, process.env.REACT_APP_AUTH0_DOMAIN, options)
+        this.state = { loggedIn: false, err: null }
     }
 
     componentWillMount() {
@@ -25,12 +26,14 @@ class Login extends Component {
     logout () {
         this.setState({ loggedIn: false })
         localStorage.setItem('accessToken', null)
+        localStorage.setItem('id_token', null)
     }
 
     render () {
-
         if (this.state.loggedIn) {
-            return (<button onClick={() => this.logout()}>Logout</button>)
+            return (
+                <button onClick={() => this.logout()}>Logout</button>
+            )
         }
 
         return (
